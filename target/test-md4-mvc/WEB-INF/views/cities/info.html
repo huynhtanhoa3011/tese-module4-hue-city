@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>THÔNG TIN THÀNH PHỐ</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="/layout/head :: head"></th:block>
+</head>
+<body>
+<div class="container">
+
+    <div class="card border-success mt-3">
+        <div class="card-header bg-success ">
+            <div class="row justify-content-between text-white">
+                <div class=" col-4 h4 mt-1">Thông tin thành phố</div>
+                <div class="col-4">
+                    <a href="/cities" type="submit" class="btn btn-outline-light align-self-end">Xem danh sách thành phố</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-body">
+                <h5 class="card-title">Thành phố <span th:text="${city.name}"></span></h5>
+                <p class="card-text ml-2">Tên thành phố: <span th:text="${city.name}"></span></p>
+                <p class="card-text ml-2">Quốc gia: <span th:text="${city.country.name}"></span></p>
+                <p class="card-text ml-2">Diện tích: <span th:text="${city.area}"></span> &#13218;</p>
+                <p class="card-text ml-2">Dân số: <span th:text="${city.popolation}"></span> người</p>
+                <p class="card-text ml-2">GDP: <span th:text="${city.gdp}"></span> USD</p>
+                <p class="card-text ml-2">Giới thiệu: <span th:text="${city.intro}"></span></p>
+
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-4">
+                    <a th:href="@{/cities/edit/__${city.getId()}__}" class="btn btn-outline-primary offset-md-6 col-6">Chỉnh sửa</a>
+                </div>
+                <div class="col-4">
+                    <a th:href="@{/cities/delete/__${city.getId()}__}" class="btn btn-outline-secondary col-6">Xóa</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

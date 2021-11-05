@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DANH SÁCH THÀNH PHỐ</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="/layout/head :: head"></th:block>
+</head>
+<body>
+<div class="container">
+    <div class="card text-white text-center" style="background-color:#9fcdff">
+        <div class="card-body row justify-content-between mt-2">
+            <div class="col-4 h2">Danh sách thành phố</div>
+            <div class="col-4">
+                <a href="/cities/create" class="col-8 text-white btn btn-primary">Thêm thành phố</a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped text-center mt-2 border-danger">
+        <thead class="text-white" style="background-color:#f8d7da">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Thành phố</th>
+            <th scope="col">Quốc gia</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="city : ${city}">
+            <tr>
+                <th scope="row" th:text="${city.getId()}"></th>
+                <td th:text="${city.getName()}"></td>
+                <td th:text="${city.getCountry().getName()}"></td>
+                <td>
+                    <a th:href="@{/cities/info/__${city.getId()}__}">Chỉnh sửa</a>
+                    <span>&nbsp;|&nbsp;</span>
+                    <a th:href="@{/cities/delete/__${city.getId()}__}">Xóa</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

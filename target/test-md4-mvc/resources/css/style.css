@@ -1,0 +1,54 @@
+.message{
+    color:green;
+}
+
+label.error{
+    margin-top: 5px;
+    color: #842029;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 0;
+    padding-right: 50px;
+    color: #0f5132;
+}
+
+#message-alert {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+}
+
+.alert-success {
+    padding: 1rem 135px;
+}
+
+.alert-danger {
+    padding: 1rem 135px;
+}
+
+.alert-danger h5 {
+    margin-left: -18px;
+}
+
+.alert-danger ul {
+    margin-left: -2rem;
+}
+
+#close {
+    top: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #d91515;
+    cursor: pointer;
+    right: 65px;
+    position: absolute;
+}
+
+.hide {
+    display: none;
+}

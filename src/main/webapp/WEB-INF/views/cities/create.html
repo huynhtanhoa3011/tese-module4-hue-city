@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm thành phố</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="/layout/head :: head"></th:block>
+</head>
+<body>
+<div class="container">
+    <div class="card border-success mt-3">
+        <div class="card-header bg-success h4 text-white">Thêm thành phố</div>
+        <div class="card-body">
+            <form th:object="${city}" method="post">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Tên thành phố:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nameCre" th:field="*{name}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Quốc gia:</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="countryCre" th:field="*{country}">
+                            <th:block th:each="country : ${countries}">
+                                <option th:value="${country.getId()}" th:text="${country.getName()}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Diện tích:</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="areaCre" th:field="*{area}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Dân số:</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="populationCre" th:field="*{popolation}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">GDP:</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="gdpCre" th:field="*{gdp}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Giới thiệu:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="introCre" rows="4" th:field="*{intro}"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-outline-primary offset-md-6 col-6">Nhập thành phố</button>
+                    </div>
+                    <div class="col-4">
+                        <a href="/cities" type="submit" class="btn btn-outline-secondary col-6">Thoát</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
